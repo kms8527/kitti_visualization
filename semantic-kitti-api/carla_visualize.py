@@ -5,7 +5,9 @@ import os
 import yaml
 from auxiliary.laserscan import LaserScan, SemLaserScan
 from auxiliary.laserscanvis import LaserScanVis
-
+# current_dir load
+current_dir = os.getcwd()
+config_dir = os.path.join(current_dir, 'config/label_mapping/carla.yaml')
 if __name__ == '__main__':
   parser = argparse.ArgumentParser("./visualize.py")
   parser.add_argument(
@@ -19,7 +21,7 @@ if __name__ == '__main__':
       '--config', '-c',
       type=str,
       required=False,
-      default="/home/a/lidar/Cylinder3D/config/label_mapping/carla.yaml",
+      default=config_dir,
       help='Dataset config file. Defaults to %(default)s',
   )
   parser.add_argument(
